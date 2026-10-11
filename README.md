@@ -1,17 +1,18 @@
 # Cards-Home-Assistant-Netatmo-and-Mobile-Alerts
 How to add cards for Netatmo or Mobile Alerts to Home Assistant
 Netatmo / Mobile Alerts Karten Home Assistant.
-2 Karten für Netatmo: 
-Indoor- und Outdoor-Modul über netatmo-indoor-card.js
- Regen- und Windmesser über netatmo-gauge-card.js
+Zwei Karten für Netatmo: 
+- Indoor- und Outdoor-Modul über netatmo-indoor-card.js
+- Regen- und Windmesser über netatmo-gauge-card.js
 
-1 Karte für Mobile Alerts;
- mobile-alerts-card.js
+Eine Karte für Mobile Alerts;
+- mobile-alerts-card.js
 
-1.	Die entsprechende -card.js nach /config/www/ kopieren.
-2.	Unter Einstellungen → Dashboards → ⋮ → Ressourcen /local/XXX0-card.js die entsprechende Karte als JavaScript-Modul hinzufügen.
+1.	Die entsprechende -card.js in Home Assistant über den File-Editornach /config/www/ kopieren.
+2.	In Home Assistant unter "Einstellungen → Dashboards → ⋮ → Ressourcen" /local/XXX0-card.js die entsprechende Karte als JavaScript-Modul hinzufügen.
 
-YAML Netatmo Indoor/Outdoor: (X durch Deinen Sensor ersetzen)
+YAML Netatmo Indoor/Outdoor: (X durch Deinen Sensor ersetzen). Diese in die Karte kopieren:
+
 type: custom:netatmo-indoor-card
 name: Wohnzimmer
 temperature: sensor.XXX_temperature
@@ -20,8 +21,9 @@ co2: sensor.XXX_carbon_dioxide
 wifi: sensor.XXX_wi_fi_strength
 battery: sensor.XXX_battery
 
-YAML Netatmo Gauge:
+YAML Netatmo Gauge - Diese in die Karte kopieren::
 Regenmesser:
+
 type: custom:netatmo-rain-card
 name: Garten
 rain: sensor.DEIN_REGENMESSER_niederschlag
@@ -33,6 +35,7 @@ battery: sensor.DEIN_REGENMESSER_batterie
 
 YAML Netatmo Gauge:
 Windmesser:
+
 type: custom:netatmo-wind-card
 name: Dach
 wind_speed: sensor.DEIN_WINDMESSER_windgeschwindigkeit
@@ -45,6 +48,7 @@ battery: sensor.DEIN_WINDMESSER_batterie
 Mobile Alerts:
 Farbskalen: Mobile Alerts nutzt man oft nicht nur im Wohnraum, deshalb gibt es Voreinstellungen:
 YAML:
+
 scale: indoor    # Standard: Wohnraum
 scale: outdoor   # draußen, auch Minusgrade
 scale: fridge    # Kühlschrank: ideal 3–5 °C, rot ab 10 °C
